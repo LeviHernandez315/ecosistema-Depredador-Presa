@@ -11,8 +11,15 @@ import Lobo from "./clases/Lobo.js";
 let lastFrameTime = 0;
 const frameDelay = 200; // Tiempo en milisegundos (200 ms = 5 FPS)
 
-const initialSheepCount = 1; // Número de ovejas
-const initialWolfCount = 20; // Número de lobos
+const cantAGuardado = localStorage.getItem("cantA");
+console.log(cantAGuardado);
+
+const datosGuardados = JSON.parse(localStorage.getItem("datos"));
+
+const initialSheepCount = datosGuardados.cantidadAnimalA; // Número de ovejas
+console.log(datosGuardados.cantidadAnimalA);
+const initialWolfCount = datosGuardados.cantidadAnimalB; // Número de lobos
+console.log(datosGuardados.cantidadAnimalB);
 
 // Canvas y configuración
 const canvas = document.getElementById("simulationCanvas");
