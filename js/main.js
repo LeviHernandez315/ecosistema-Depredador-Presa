@@ -7,6 +7,10 @@ const alpha = 0.1; // Tasa de crecimiento de las ovejas
 const beta = 0.02; // Tasa de depredación (lobos comen ovejas)
 const delta = 0.01; // Tasa de reproducción de lobos por oveja comida
 const gamma = 0.1; // Tasa de mortalidad de lobos
+
+let lastFrameTime = 0;
+const frameDelay = 200; // Tiempo en milisegundos (200 ms = 5 FPS)
+
 const initialSheepCount = 50; // Número de ovejas
 const initialWolfCount = 20; // Número de lobos
 
@@ -78,14 +82,14 @@ function draw() {
     // Dibujar parches de hierba
     grid.forEach((row, x) =>
         row.forEach((patch, y) => {
-            ctx.fillStyle = patch.hasGrass ? "green" : "brown";
+            ctx.fillStyle = patch.hasGrass ? "green" : "gray";
             ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
         })
     );
 
-    // Dibujar ovejas
+    // Dibujar las ovejas
     ovejas.forEach((s) => {
-        ctx.fillStyle = "white";
+        ctx.fillStyle = s.isDead ? "red" : "white"; // Cambiar color si la oveja está muerta
         ctx.beginPath();
         ctx.arc(
             s.x * cellSize + cellSize / 2,
@@ -96,7 +100,6 @@ function draw() {
         );
         ctx.fill();
     });
-
     // Dibujar lobos
     lobos.forEach((w) => {
         ctx.fillStyle = "black";
@@ -112,10 +115,13 @@ function draw() {
     });
 }
 
-function loop() {
-    step(); // Avanzar un paso en la simulación
-    draw(); // Dibujar el estado actual
-    requestAnimationFrame(loop, 200); // Repetir en el siguiente frame
+function loop(timestamp) {
+    if (timestamp - lastFrameTime >= frameDelay) {
+        lastFrameTime = timestamp;
+        step(); // Llama a la función step() para actualizar la simulación
+        draw(); // Dibuja los resultados
+    }
+    requestAnimationFrame(loop); // Llama a la siguiente iteración de la simulación
 }
 
 // Iniciar simulación

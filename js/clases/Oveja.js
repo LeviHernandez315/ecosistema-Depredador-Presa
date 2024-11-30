@@ -4,6 +4,7 @@ export default class Oveja extends Animal {
     constructor(x, y) {
         super(x, y);
         this.energy = 50; // Energía inicial de las ovejas
+        this.isDead = false; // Nuevo atributo para marcar si la oveja está muerta
     }
 
     eatGrass(patch) {
@@ -36,5 +37,9 @@ export default class Oveja extends Animal {
 
         // Reducir energía después del movimiento
         this.reduceEnergy();
+        // Si la oveja se queda sin energía, marcarla como muerta
+        if (this.energy <= 0) {
+            this.isDead = true;
+        }
     }
 }
