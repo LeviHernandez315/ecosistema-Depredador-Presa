@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container with 3x3 Grid</title>
+    <link rel="stylesheet" href="/css/paginados.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="title">  <h1>Ingrese los datos</h1></div>
+       
+      
+        
+
+        
+        <div class="grid">
+
+            <div class="grid-item">
+                <div><input type="checkbox"> Pasto?</div>
+                
+            </div>
+    
+            <div class="grid-item">
+
+                <div>
+                    <input type="range" id="range1" min="0" max="100" value="50" oninput="updateValue('range1', 'rangeValue1')"> 
+                    <input type="text" id="rangeValue1" class="input-box" value="50" readonly>
+                </div>
+                <div>
+                    2
+                </div>
+               
+                
+            </div>
+    
+            <div class="grid-item">
+
+                <div><input type="range" id="range2" min="0" max="100" value="50" oninput="updateValue('range2', 'rangeValue2')">
+                    <input type="text" id="rangeValue2" class="input-box" value="50" readonly></div>
+                <div>3</div>
+                
+            </div>
+    
+            <div class="grid-item">
+                <div> <input type="range" id="range3" min="0" max="100" value="50" oninput="updateValue('range3', 'rangeValue3')">
+                    <input type="text" id="rangeValue3" class="input-box" value="50" readonly></div>
+                <div> 4</div>
+               
+            </div>
+    
+            <div class="grid-item">
+                <div><input type="range" id="range4" min="0" max="100" value="50" oninput="updateValue('range4', 'rangeValue4')">
+                    <input type="text" id="rangeValue4" class="input-box" value="50" readonly></div>
+                <div>5</div>
+                
+            </div>
+    
+            <div class="grid-item">
+                <div> <input type="range" id="range5" min="0" max="100" value="50" oninput="updateValue('range5', 'rangeValue5')">
+                    <input type="text" id="rangeValue5" class="input-box" value="50" readonly></div>
+                <div>8</div>
+               
+            </div>
+    
+            <div class="grid-item"> <a href="/paginastres.html">Iniciar</a></div>
+    
+            <div class="grid-item">
+                <div>      <input type="range" id="range6" min="0" max="100" value="50" oninput="updateValue('range6', 'rangeValue6')">
+                    <input type="text" id="rangeValue6" class="input-box" value="50" readonly></div>
+                <div>8</div>
+          
+            </div>
+    
+            <div class="grid-item">
+                <div> <input type="range" id="range7" min="0" max="100" value="50" oninput="updateValue('range7', 'rangeValue7')">
+                    <input type="text" id="rangeValue7" class="input-box" value="50" readonly></div>
+                <div>9</div>
+               
+            </div>
+            
+    </div>
+    </div>
+</body>
+<script>
+     function updateValue(rangeId, textId) {
+            const rangeValue = document.getElementById(rangeId).value;
+            document.getElementById(textId).value = rangeValue;
+        }
+</script>
+</html>

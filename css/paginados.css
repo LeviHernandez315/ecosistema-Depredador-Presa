@@ -1,0 +1,71 @@
+/* Centrar el contenedor en la pantalla */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    height: 60%;
+    width: 60%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Configuración del grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    padding: 5%;
+    margin-top: 5%;
+    gap: 10%; /* Espaciado entre las celdas */
+}
+
+/* Estilo de los elementos del grid */
+.grid-item {
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, background-color 0.3s;
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna */
+}
+
+/* Efecto hover */
+.grid-item:hover {
+    transform: scale(1.1);
+    background-color: #45a049;
+}
+
+
+.input-box {
+    width: 50px; /* Ancho pequeño para la caja de texto */
+    text-align: center; /* Centrar el número */}
+
+    .abajo{
+        display: grid;
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 10px; /* Espacio entre los div */
+    }
+
+    .title{
+        display: flex;
+        justify-content: center; /* Centrar el título */  
+        font-weight: bold;
+   
+ }
