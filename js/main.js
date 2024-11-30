@@ -11,8 +11,8 @@ import Lobo from "./clases/Lobo.js";
 let lastFrameTime = 0;
 const frameDelay = 200; // Tiempo en milisegundos (200 ms = 5 FPS)
 
-const initialSheepCount = 20; // Número de ovejas
-const initialWolfCount = 30; // Número de lobos
+const initialSheepCount = 1; // Número de ovejas
+const initialWolfCount = 20; // Número de lobos
 
 // Canvas y configuración
 const canvas = document.getElementById("simulationCanvas");
@@ -60,14 +60,15 @@ function step() {
 
     // Mover lobos y cazar ovejas
     lobos = lobos.flatMap((lobo) => {
-        lobo.moveAndHunt(ovejas, gridSize); // Pasar gridSize
+        // Mover el lobo y hacerle cazar (pasar gridSize)
+        const updatedLobo = lobo.moveAndHunt(ovejas, gridSize);
 
-        // Si el lobo no tiene energía, muere (es eliminado)
-        if (lobo.energy <= 0) return [];
+        // Si el lobo ha muerto (energy <= 0), no lo agregamos de nuevo
+        if (!updatedLobo) return []; // El lobo muere y no se incluye en el array
 
         // Verificar si el lobo puede reproducirse
-        const offspring = lobo.reproduce();
-        return offspring ? [lobo, offspring] : [lobo];
+        const offspring = updatedLobo.reproduce();
+        return offspring ? [updatedLobo, offspring] : [updatedLobo]; // Incluir al lobo y su cría si se reproduce
     });
 
     // Crecer la hierba en los parches
