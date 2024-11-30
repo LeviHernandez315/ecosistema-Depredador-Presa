@@ -32,13 +32,13 @@ body {
 
 .item-70 {
    
-    background-color: #4caf50;
+    background-color: #2bb22b;
     height: 70%; /* Ocupa el 50% de la altura del contenedor */
     overflow: hidden; /* Para evitar que la imagen sobresalga del contenedor */
 }
 
 .item2 {
-    background-color: #4c65af;
+    background-color: #2bb22b;
        text-align: center;
        border-radius: 5px;
        display: flex;
@@ -51,7 +51,7 @@ body {
 
    .item2:hover {
     transform: scale(1.1);
-    background-color: #454ca0;
+    background-color: #2bb22b;
 }
    
    .input-box {

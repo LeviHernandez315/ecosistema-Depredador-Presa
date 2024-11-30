@@ -13,7 +13,7 @@ body {
 .container {
     background-color: #ffffff;
     padding: 20px;
-    height: 60%;
+    height: auto;
     width: 60%;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -46,26 +46,69 @@ body {
     grid-template-columns: 1fr; /* Una sola columna */
 }
 
+.grid-item a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.grid-item input{
+    cursor: pointer;
+}
+
 /* Efecto hover */
 .grid-item:hover {
     transform: scale(1.1);
-    background-color: #45a049;
+    background-color: #2bb22b;
 }
-
 
 .input-box {
     width: 50px; /* Ancho pequeño para la caja de texto */
-    text-align: center; /* Centrar el número */}
+    text-align: center; /* Centrar el número */
+}
 
-    .abajo{
-        display: grid;
-        grid-template-columns: 1fr; /* Una sola columna */
-        gap: 10px; /* Espacio entre los div */
-    }
+.abajo {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 10px; /* Espacio entre los div */
+}
 
-    .title{
-        display: flex;
-        justify-content: center; /* Centrar el título */  
-        font-weight: bold;
-   
- }
+.title {
+    flex: 0.72; 
+    text-align: center; 
+}
+
+.item2 {
+    background-color: #32cd32;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 20%;
+    transition: transform 0.3s, background-color 0.3s;
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.item2 a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.item2:hover {
+    transform: scale(1.1);
+    background-color: #2bb22b;
+}
+
+.header {
+    display: flex; /* Habilita flexbox */
+    align-items: center; /* Centra verticalmente los elementos */
+    position: relative;
+    gap: 20px; /* Espacio opcional entre el título y el botón */
+}

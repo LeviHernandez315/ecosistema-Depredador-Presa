@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Container with 3x3 Grid</title>
-    <link rel="stylesheet" href="/css/inicio.css">
-</head>
-<body>
-    <div class="container">
-        <div class="item item-15">
-            <div > <h1>Simulación: Lobos, Ovejas y Pasto</h1></div>
-         
-        </div>
-        
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Container with 3x3 Grid</title>
+        <link rel="stylesheet" href="/css/inicio.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="item-15">
+                <div><h1>Simulación: Lobos, Ovejas y Pasto</h1></div>
+            </div>
 
-        <div class="item item-70">
-           
-            <canvas id="simulationCanvas" width="1200px" height="800px"></canvas>
-      <script type="module" src="js/main.js"></script>
-       </div>
+            <div class="item">
+              <div class="item-70">
+                  <img src="/img/lobo-oveja.jpg" alt="" />
+              </div>
+            </div>
 
-        <div class="item item-15">
-
-           
-            <button class="item2" id="openModal">Información</button>
-            <button class="item2" ><a href="/paginados.html"> Iniciar</a> </button>
-            
-            
-         
+            <div class="item item-15">
+                <button class="item2" id="openModal">Información</button>
+                <button class="item2">
+                    <a href="/paginados.html"> Iniciar</a>
+                </button>
+            </div>
         </div>
 
-        
-
-        
-    </div>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Información</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula, lorem id dictum consequat, erat tortor efficitur ligula, at tincidunt justo eros vel ligula. Sed accumsan malesuada libero in convallis. Donec dictum nunc eu velit aliquam, sit amet sollicitudin odio suscipit. Fusce volutpat, lacus at sagittis dignissim, justo felis suscipit magna, eget pellentesque nisi neque vel sem. Nam feugiat varius risus, non vehicula nunc consectetur id. Nullam a turpis ultricies, tincidunt neque non, vehicula ipsum. Ut pretium vestibulum nisl non ultrices. Nam tincidunt tortor vel risus dictum, a efficitur lectus viverra. Duis lacinia eros ut tincidunt facilisis.
-
-            Praesent tincidunt augue id luctus faucibus. Mauris tempus nunc quis nisl malesuada, a interdum justo fermentum. Curabitur eget sagittis purus, sit amet euismod tortor. Aliquam ornare nunc non arcu fermentum, a pretium lorem aliquet. Etiam id vestibulum arcu. Suspendisse volutpat dui sit amet magna efficitur, non dignissim arcu tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec congue leo quis orci egestas suscipit. Nam sagittis sem at risus gravida, non congue enim auctor. Proin vehicula eros a ex bibendum, nec pharetra urna vulputate.</p>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Información</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus vehicula, lorem id dictum consequat, erat tortor
+                    efficitur ligula, at tincidunt justo eros vel ligula. Sed
+                    accumsan malesuada libero in convallis. Donec dictum nunc eu
+                    velit aliquam, sit amet sollicitudin odio suscipit. Fusce
+                    volutpat, lacus at sagittis dignissim, justo felis suscipit
+                    magna, eget pellentesque nisi neque vel sem. Nam feugiat
+                    varius risus, non vehicula nunc consectetur id. Nullam a
+                    turpis ultricies, tincidunt neque non, vehicula ipsum. Ut
+                    pretium vestibulum nisl non ultrices. Nam tincidunt tortor
+                    vel risus dictum, a efficitur lectus viverra. Duis lacinia
+                    eros ut tincidunt facilisis. Praesent tincidunt augue id
+                    luctus faucibus. Mauris tempus nunc quis nisl malesuada, a
+                    interdum justo fermentum. Curabitur eget sagittis purus, sit
+                    amet euismod tortor. Aliquam ornare nunc non arcu fermentum,
+                    a pretium lorem aliquet. Etiam id vestibulum arcu.
+                    Suspendisse volutpat dui sit amet magna efficitur, non
+                    dignissim arcu tincidunt. Pellentesque habitant morbi
+                    tristique senectus et netus et malesuada fames ac turpis
+                    egestas. Donec congue leo quis orci egestas suscipit. Nam
+                    sagittis sem at risus gravida, non congue enim auctor. Proin
+                    vehicula eros a ex bibendum, nec pharetra urna vulputate.
+                </p>
+            </div>
         </div>
-      </div>
-</body>
-<script>
-    // Referencias a los elementos
-    const modal = document.getElementById("myModal");
-    const openModalBtn = document.getElementById("openModal");
-    const closeModalBtn = document.querySelector(".close");
+    </body>
+    <script>
+        // Referencias a los elementos
+        const modal = document.getElementById("myModal");
+        const openModalBtn = document.getElementById("openModal");
+        const closeModalBtn = document.querySelector(".close");
 
-    // Abrir el modal
-    openModalBtn.onclick = function() {
-      modal.style.display = "block";
-    };
+        // Abrir el modal
+        openModalBtn.onclick = function () {
+            modal.style.display = "block";
+        };
 
-    // Cerrar el modal
-    closeModalBtn.onclick = function() {
-      modal.style.display = "none";
-    };
+        // Cerrar el modal
+        closeModalBtn.onclick = function () {
+            modal.style.display = "none";
+        };
 
-    // Cerrar el modal haciendo clic fuera de él
-    window.onclick = function(event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-  </script>
-
+        // Cerrar el modal haciendo clic fuera de él
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
 </html>
