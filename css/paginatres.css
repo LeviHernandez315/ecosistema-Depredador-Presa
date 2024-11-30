@@ -49,6 +49,7 @@ body {
 .item-50 {
     background-color: #4caf50;
     height: 60%; /* Ocupa el 50% de la altura del contenedor */
+    overflow: hidden; 
 }
 
 .item-35 {
