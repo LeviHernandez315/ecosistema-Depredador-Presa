@@ -2,17 +2,17 @@ import Patch from "./clases/Patch.js";
 import Oveja from "./clases/Oveja.js";
 import Lobo from "./clases/Lobo.js";
 
-// Parámetros del modelo Lotka-Volterra
-const alpha = 0.1; // Tasa de crecimiento de las ovejas
-const beta = 0.02; // Tasa de depredación (lobos comen ovejas)
-const delta = 0.01; // Tasa de reproducción de lobos por oveja comida
-const gamma = 0.1; // Tasa de mortalidad de lobos
+// // Parámetros del modelo Lotka-Volterra
+// const alpha = 0.1; // Tasa de crecimiento de las ovejas
+// const beta = 0.02; // Tasa de depredación (lobos comen ovejas)
+// const delta = 0.01; // Tasa de reproducción de lobos por oveja comida
+// const gamma = 0.1; // Tasa de mortalidad de lobos
 
 let lastFrameTime = 0;
 const frameDelay = 200; // Tiempo en milisegundos (200 ms = 5 FPS)
 
-const initialSheepCount = 50; // Número de ovejas
-const initialWolfCount = 20; // Número de lobos
+const initialSheepCount = 20; // Número de ovejas
+const initialWolfCount = 30; // Número de lobos
 
 // Canvas y configuración
 const canvas = document.getElementById("simulationCanvas");
