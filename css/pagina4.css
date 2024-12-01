@@ -32,8 +32,7 @@ body {
 
 .item-70 {
    
-    background-color: #2bb22b;
-    height: 70%; /* Ocupa el 50% de la altura del contenedor */
+    height: auto; /* Ocupa el 50% de la altura del contenedor */
     overflow: hidden; /* Para evitar que la imagen sobresalga del contenedor */
 }
 
