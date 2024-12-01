@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Simulación de Lobos y Ovejas</title>
-      <link rel="stylesheet" href="css/styles.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Container with 3x3 Grid</title>
+        <link rel="stylesheet" href="/css/inicio.css" />
     </head>
     <body>
-      <h1 class="title">Simulación: Lobos, Ovejas y Pasto</h1>
-      <!-- <canvas id="simulationCanvas" width="800" height="800"></canvas> -->
-      <!-- <script type="module" src="js/main.js"></script> -->
+        <div class="container">
+            <div class="item-15">
+                <div><h1>Simulación: Lobos, Ovejas y Pasto</h1></div>
+            </div>
+
+            <div class="item">
+              <div class="item-70">
+                  <img src="/img/lobo-oveja.jpg" alt="" />
+              </div>
+            </div>
+
+            <div class="item item-15">
+                <button class="item2" id="openModal">Información</button>
+                <button class="item2">
+                    <a href="/paginados.html"> Iniciar</a>
+                </button>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Información</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus vehicula, lorem id dictum consequat
+                </p>
+            </div>
+        </div>
     </body>
+    <script>
+        // Referencias a los elementos
+        const modal = document.getElementById("myModal");
+        const openModalBtn = document.getElementById("openModal");
+        const closeModalBtn = document.querySelector(".close");
+
+        // Abrir el modal
+        openModalBtn.onclick = function () {
+            modal.style.display = "block";
+        };
+
+        // Cerrar el modal
+        closeModalBtn.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        // Cerrar el modal haciendo clic fuera de él
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
 </html>
