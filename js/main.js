@@ -3,7 +3,7 @@ import Oveja from "./clases/Oveja.js";
 import Lobo from "./clases/Lobo.js";
 
 // // Parámetros del modelo Lotka-Volterra
-// const alpha = 0.1; // Tasa de crecimiento de las ovejas
+// const alpha = 0.1; // Tasa de reproducción de las ovejas
 // const beta = 0.02; // Tasa de depredación (lobos comen ovejas)
 // const delta = 0.01; // Tasa de reproducción de lobos por oveja comida
 // const gamma = 0.1; // Tasa de mortalidad de lobos

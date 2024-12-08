@@ -39,7 +39,7 @@
                             readonly
                         />
                     </div>
-                    <div>Cantidad de Animal A</div>
+                    <div>Cantidad de Ovejas</div>
                 </div>
 
                 <div class="grid-item">
@@ -60,10 +60,10 @@
                             readonly
                         />
                     </div>
-                    <div>Cantidad de Animal B</div>
+                    <div>Cantidad de Lobos</div>
                 </div>
 
-                <div class="grid-item">
+                <!-- <div class="grid-item">
                     <div>
                         <input
                             type="range"
@@ -82,7 +82,7 @@
                         />
                     </div>
                     <div>Tiempo Paso Nuevo</div>
-                </div>
+                </div> -->
 
                 <div class="grid-item">
                     <div>
@@ -90,19 +90,20 @@
                             type="range"
                             id="range4"
                             min="0"
-                            max="100"
-                            value="50"
+                            max="1"
+                            step="0.1"
+                            value="0.5"
                             oninput="updateValue('range4', 'rangeValue4')"
                         />
                         <input
                             type="text"
                             id="rangeValue4"
                             class="input-box"
-                            value="50"
+                            value="0.5"
                             readonly
                         />
                     </div>
-                    <div>A en reproducirse</div>
+                    <div>% Tasa de reproducción Ovejas (alpha)</div>
                 </div>
 
                 <div class="grid-item">
@@ -111,19 +112,20 @@
                             type="range"
                             id="range5"
                             min="0"
-                            max="100"
-                            value="50"
+                            max="1"
+                            step="0.1"
+                            value="0.5"
                             oninput="updateValue('range5', 'rangeValue5')"
                         />
                         <input
                             type="text"
                             id="rangeValue5"
                             class="input-box"
-                            value="50"
+                            value="0.5"
                             readonly
                         />
                     </div>
-                    <div>B en reproducirse</div>
+                    <div>% Tasa de reproducción Lobos (delta)</div>
                 </div>
 
                 
@@ -134,19 +136,20 @@
                             type="range"
                             id="range6"
                             min="0"
-                            max="100"
-                            value="50"
+                            max="1"
+                            step="0.1"
+                            value="0.5"
                             oninput="updateValue('range6', 'rangeValue6')"
                         />
                         <input
                             type="text"
                             id="rangeValue6"
                             class="input-box"
-                            value="50"
+                            value="0.5"
                             readonly
                         />
                     </div>
-                    <div>A gana al comer</div>
+                    <div>% Tasa de mortalidad de Lobos (gamma)</div>
                 </div>
 
                 <div class="grid-item">
@@ -155,20 +158,22 @@
                             type="range"
                             id="range7"
                             min="0"
-                            max="100"
-                            value="50"
+                            max="1"
+                            step="0.1"
+                            value="0.5"
                             oninput="updateValue('range7', 'rangeValue7')"
                         />
                         <input
                             type="text"
                             id="rangeValue7"
                             class="input-box"
-                            value="50"
+                            value="0.5"
                             readonly
                         />
                     </div>
-                    <div>B gana al comer</div>
+                    <div>% Tasa de depredación Lobos (beta)</div>
                 </div>
+                
                 
                 <div id="Start" class="grid-item">
                     <a href="/paginastres.html">Iniciar</a>
