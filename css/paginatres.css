@@ -50,6 +50,13 @@ body {
     cursor: pointer;
 }
 
+.item2 a:hover {
+    transform: scale(1.1);
+    background-color: #2bb22b;
+    color: blue;
+    cursor: pointer;
+}
+
 .item-50 {
     margin-top: 20px;
     height: 60%; /* Ocupa el 50% de la altura del contenedor */

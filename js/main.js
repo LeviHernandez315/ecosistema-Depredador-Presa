@@ -16,10 +16,16 @@ console.log(cantAGuardado);
 
 const datosGuardados = JSON.parse(localStorage.getItem("datos"));
 
-const initialSheepCount = 60; // Número de ovejas
+const initialSheepCount = 1; // Número de ovejas
 console.log(datosGuardados.cantidadAnimalA);
-const initialWolfCount = 5; // Número de lobos
+const initialWolfCount = 0; // Número de lobos
 console.log(datosGuardados.cantidadAnimalB);
+
+const pauseResumeButton = document.getElementById("pauseResumeButton");
+const resetButton = document.getElementById("resetButton");
+
+// Estado inicial para pausar/reanudar
+let isPaused = false;
 
 // Canvas y configuración
 const canvas = document.getElementById("simulationCanvas");
@@ -195,6 +201,33 @@ function updateSimulationTime() {
     const timeInput = document.querySelector('input[placeholder="Tiempo"]');
     timeInput.value = simulationTime; // Actualiza el input con el tiempo transcurrido
 }
+
+// Evento para pausar/reanudar la simulación
+pauseResumeButton.addEventListener("click", () => {
+    if (isPaused) {
+        // Reanudar simulación
+        simulationRunning = true; // Permitir que la simulación corra
+        pauseResumeButton.textContent = "Pausar"; // Cambiar el texto del botón
+        loop(); // Reanudar el loop
+    } else {
+        // Pausar simulación
+        simulationRunning = false; // Detener la simulación
+        pauseResumeButton.textContent = "Reanudar"; // Cambiar el texto del botón
+    }
+    isPaused = !isPaused; // Alternar el estado
+});
+
+// Evento para reiniciar la simulación
+resetButton.addEventListener("click", () => {
+    simulationRunning = false; // Detener la simulación antes de reiniciarla
+    setup(); // Volver a inicializar las variables
+    simulationTime = 0; // Reiniciar el tiempo
+    updateSimulationTime(); // Actualizar el tiempo en la interfaz
+    simulationRunning = true; // Permitir que la simulación vuelva a correr
+    lastFrameTime = 0; // Resetear el tiempo del último fotograma
+    lastSecondTime = 0; // Resetear el tiempo del último segundo
+    loop(); // Volver a iniciar la simulación
+});
 
 // Iniciar simulación
 setup();
