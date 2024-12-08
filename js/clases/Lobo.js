@@ -8,12 +8,8 @@ export default class Lobo extends Animal {
 
     // Método para consumir ovejas y ganar energía
     eatSheep() {
-        const delta = 0.4; // Tasa de reproducción de lobos por oveja comida
         const energyGained = 200; // Energía ganada por comer una oveja
         this.energy += energyGained;
-
-        // Aumentar la tasa de reproducción por cada oveja comida
-        this.energy += delta * energyGained; // Incrementar energía por la tasa delta\
     }
 
     // Método para reducir energía por la tasa de mortalidad
@@ -27,6 +23,7 @@ export default class Lobo extends Animal {
 
     // Método para reproducir lobos si tienen suficiente energía
     reproduce() {
+        const delta = 0.4; // Tasa de reproducción de lobos por oveja comida
         const reproductionThreshold = 100; // Energía necesaria para reproducirse
 
         // Verificar si el lobo tiene suficiente energía para reproducirse
@@ -34,8 +31,7 @@ export default class Lobo extends Animal {
             // Reducir la energía al dividirla con la nueva cría
             this.energy /= 2;
 
-            // Crear un nuevo lobo en la misma posición
-            return new Lobo(this.x, this.y);
+            return Math.random() < delta ? new Lobo(this.x, this.y) : null; // Usar delta como probabilidad
         }
         return null; // No se reproduce si no alcanza la energía necesaria
     }

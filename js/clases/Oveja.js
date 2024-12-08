@@ -14,14 +14,16 @@ export default class Oveja extends Animal {
         }
     }
 
-    reproduce() {
+    reproduce(neighboringSheepCount) {
         const alpha = 0.6; // Tasa de reproducción de las ovejas
         const reproductionThreshold = 60; // Energía necesaria para reproducirse
-        if (this.energy >= reproductionThreshold) {
+
+        // Verifica si hay al menos otra oveja cercana
+        if (this.energy >= reproductionThreshold && neighboringSheepCount > 0) {
             this.energy /= 2; // Dividir la energía entre la madre y la cría
             return Math.random() < alpha ? new Oveja(this.x, this.y) : null; // Usar alpha como probabilidad
         }
-        return null; // No se reproduce si no alcanza la energía necesaria
+        return null; // No se reproduce si no alcanza la energía o no hay otras ovejas cerca
     }
 
     reduceEnergy() {

@@ -16,9 +16,9 @@ console.log(cantAGuardado);
 
 const datosGuardados = JSON.parse(localStorage.getItem("datos"));
 
-const initialSheepCount = 1; // Número de ovejas
+const initialSheepCount = 60; // Número de ovejas
 console.log(datosGuardados.cantidadAnimalA);
-const initialWolfCount = 0; // Número de lobos
+const initialWolfCount = 5; // Número de lobos
 console.log(datosGuardados.cantidadAnimalB);
 
 const pauseResumeButton = document.getElementById("pauseResumeButton");
@@ -103,7 +103,17 @@ function step() {
     ovejas = ovejas.flatMap((oveja) => {
         oveja.moveAndGraze(grid, gridSize);
         if (oveja.isDead) return []; // Excluir ovejas muertas
-        const offspring = oveja.reproduce();
+
+        // Contar las ovejas vecinas (en un radio de 1 celda)
+        const neighboringSheepCount = ovejas.filter(
+            (otherSheep) =>
+                Math.abs(otherSheep.x - oveja.x) <= 1 &&
+                Math.abs(otherSheep.y - oveja.y) <= 1 &&
+                otherSheep !== oveja // Excluir a sí misma
+        ).length;
+
+        // Intentar reproducirse solo si hay al menos otra oveja cerca
+        const offspring = oveja.reproduce(neighboringSheepCount);
         return offspring ? [oveja, offspring] : [oveja];
     });
 
