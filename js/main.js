@@ -234,6 +234,7 @@ resetButton.addEventListener("click", () => {
     simulationTime = 0; // Reiniciar el tiempo
     updateSimulationTime(); // Actualizar el tiempo en la interfaz
     simulationRunning = true; // Permitir que la simulación vuelva a correr
+    pauseResumeButton.textContent = "Pausar"; // Cambiar el texto del botón
     lastFrameTime = 0; // Resetear el tiempo del último fotograma
     lastSecondTime = 0; // Resetear el tiempo del último segundo
     loop(); // Volver a iniciar la simulación

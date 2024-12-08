@@ -39,7 +39,7 @@ export default class Oveja extends Animal {
         // Si la oveja ya está muerta, no realizar ningún paso
         if (this.energy <= 0) {
             this.isDead = true;
-            console.log("La oveja ha muerto");
+            // console.log("La oveja ha muerto");
             return null;
         }
 
