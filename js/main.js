@@ -16,9 +16,9 @@ console.log(cantAGuardado);
 
 const datosGuardados = JSON.parse(localStorage.getItem("datos"));
 
-const initialSheepCount = datosGuardados.cantidadAnimalA; // Número de ovejas
+const initialSheepCount = 10; // Número de ovejas
 console.log(datosGuardados.cantidadAnimalA);
-const initialWolfCount = datosGuardados.cantidadAnimalB; // Número de lobos
+const initialWolfCount = 0; // Número de lobos
 console.log(datosGuardados.cantidadAnimalB);
 
 // Canvas y configuración
@@ -57,10 +57,8 @@ function setup() {
 function step() {
     // Mover ovejas y comer pasto
     ovejas = ovejas.flatMap((oveja) => {
-        oveja.moveAndGraze(grid, gridSize); // Pasar gridSize
-
-        if (oveja.energy <= 0) return [];
-
+        oveja.moveAndGraze(grid, gridSize);
+        if (oveja.isDead) return []; // Excluir ovejas muertas
         const offspring = oveja.reproduce();
         return offspring ? [oveja, offspring] : [oveja];
     });

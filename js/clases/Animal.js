@@ -6,12 +6,31 @@ export default class Animal {
     }
 
     move(gridSize) {
-        this.x =
-            (this.x + (Math.floor(Math.random() * 3) - 1) + gridSize) %
-            gridSize;
-        this.y =
-            (this.y + (Math.floor(Math.random() * 3) - 1) + gridSize) %
-            gridSize;
+        // Generar un movimiento aleatorio para x e y
+        let dx = Math.floor(Math.random() * 3) - 1; // -1, 0, 1
+        let dy = Math.floor(Math.random() * 3) - 1;
+
+        // Actualizar la posición de x
+        this.x += dx;
+
+        // Rebotar en el borde izquierdo o derecho
+        if (this.x < 0) {
+            this.x = 0; // Rebote en el borde izquierdo
+        } else if (this.x >= gridSize) {
+            this.x = gridSize - 1; // Rebote en el borde derecho
+        }
+
+        // Actualizar la posición de y
+        this.y += dy;
+
+        // Rebotar en el borde superior o inferior
+        if (this.y < 0) {
+            this.y = 0; // Rebote en el borde superior
+        } else if (this.y >= gridSize) {
+            this.y = gridSize - 1; // Rebote en el borde inferior
+        }
+
+        // Reducir energía
         this.energy--;
     }
 

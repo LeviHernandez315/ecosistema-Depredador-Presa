@@ -15,7 +15,7 @@ export default class Oveja extends Animal {
     }
 
     reproduce() {
-        const alpha = 0.1; // Tasa de crecimiento de las ovejas
+        const alpha = 0.1; // Tasa de reproducción de las ovejas
         const reproductionThreshold = 60; // Energía necesaria para reproducirse
         if (this.energy >= reproductionThreshold) {
             this.energy /= 2; // Dividir la energía entre la madre y la cría
