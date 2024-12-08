@@ -16,9 +16,9 @@ console.log(cantAGuardado);
 
 const datosGuardados = JSON.parse(localStorage.getItem("datos"));
 
-const initialSheepCount = 10; // Número de ovejas
+const initialSheepCount = 30; // Número de ovejas
 console.log(datosGuardados.cantidadAnimalA);
-const initialWolfCount = 0; // Número de lobos
+const initialWolfCount = 20; // Número de lobos
 console.log(datosGuardados.cantidadAnimalB);
 
 // Canvas y configuración
@@ -28,6 +28,14 @@ const gridSize = 40;
 
 // Variables globales
 let grid, ovejas, lobos;
+
+function actualizarCantidades() {
+    // Actualizar los campos de cantidad de ovejas y lobos
+    document.querySelector('input[placeholder="cantidad de Ovejas"]').value =
+        ovejas.length;
+    document.querySelector('input[placeholder="cantidad de Lobos"]').value =
+        lobos.length;
+}
 
 function setup() {
     // Inicializar el grid y las poblaciones de ovejas y lobos
@@ -78,6 +86,9 @@ function step() {
 
     // Crecer la hierba en los parches
     grid.forEach((row) => row.forEach((patch) => patch.growGrass()));
+
+    // Actualizar las cantidades de ovejas y lobos en el HTML
+    actualizarCantidades();
 }
 
 function draw() {

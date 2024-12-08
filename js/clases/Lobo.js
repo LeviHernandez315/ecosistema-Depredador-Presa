@@ -3,13 +3,13 @@ import Animal from "./Animal.js";
 export default class Lobo extends Animal {
     constructor(x, y) {
         super(x, y);
-        this.energy = 100; // Energía inicial de los lobos
+        this.energy = 50; // Energía inicial de los lobos
     }
 
     // Método para consumir ovejas y ganar energía
     eatSheep() {
-        const delta = 0.5; // Tasa de reproducción de lobos por oveja comida
-        const energyGained = 20; // Energía ganada por comer una oveja
+        const delta = 0.2; // Tasa de reproducción de lobos por oveja comida
+        const energyGained = 10; // Energía ganada por comer una oveja
         this.energy += energyGained;
 
         // Aumentar la tasa de reproducción por cada oveja comida
