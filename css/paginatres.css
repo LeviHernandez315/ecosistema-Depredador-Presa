@@ -127,3 +127,25 @@ body {
     width: 50px; /* Ancho pequeño para la caja de texto */
     text-align: center; /* Centrar el número */
 }
+
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-velocidad {
+    background-color: #2bb22b;
+    width: 30%;
+    height: 30px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.btn-velocidad:hover {
+    transform: scale(1.1);
+    background-color: #2bb22b;
+    color: blue;
+    width: 30%;
+    height: 30px;
+}

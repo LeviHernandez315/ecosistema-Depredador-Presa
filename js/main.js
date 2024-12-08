@@ -9,7 +9,7 @@ import Lobo from "./clases/Lobo.js";
 // const gamma = 0.1; // Tasa de mortalidad de lobos
 
 let lastFrameTime = 0;
-const frameDelay = 200; // Tiempo en milisegundos (200 ms = 5 FPS)
+let frameDelay = 200; // Tiempo en milisegundos (200 ms = 5 FPS)
 
 const formData = JSON.parse(localStorage.getItem("formData"));
 
@@ -213,6 +213,32 @@ function updateSimulationTime() {
     const timeInput = document.querySelector('input[placeholder="Tiempo"]');
     timeInput.value = simulationTime; // Actualiza el input con el tiempo transcurrido
 }
+
+// Función para cambiar la velocidad de la simulación
+function changeSimulationSpeed(speed) {
+    switch (speed) {
+        case "X1":
+            frameDelay = 500; // Más lento
+            break;
+        case "X3":
+            frameDelay = 200; // Velocidad normal
+            break;
+        case "X5":
+            frameDelay = 50; // Más rápido
+            break;
+        default:
+            frameDelay = 200; // Velocidad por defecto (X3)
+            break;
+    }
+}
+
+// Manejador de eventos para los botones de velocidad
+document.querySelectorAll(".btn-velocidad").forEach((button) => {
+    button.addEventListener("click", function () {
+        const speed = this.textContent; // Obtener el texto del botón (X1, X3 X5)
+        changeSimulationSpeed(speed); // Cambiar la velocidad
+    });
+});
 
 // Evento para pausar/reanudar la simulación
 pauseResumeButton.addEventListener("click", () => {
