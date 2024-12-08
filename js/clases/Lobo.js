@@ -1,5 +1,10 @@
 import Animal from "./Animal.js";
 
+const formData = JSON.parse(localStorage.getItem("formData"));
+console.log("delta", formData.tasaReproduccionLobos);
+console.log("gamma", formData.tasaMortalidadLobos);
+console.log("beta", formData.tasaDepredacionLobos);
+
 export default class Lobo extends Animal {
     constructor(x, y) {
         super(x, y);
@@ -14,7 +19,7 @@ export default class Lobo extends Animal {
 
     // Método para reducir energía por la tasa de mortalidad
     reduceEnergy() {
-        const gamma = 0.3; // Tasa de mortalidad de lobos
+        const gamma = formData.tasaMortalidadLobos; // Tasa de mortalidad de lobos
         this.energy -= gamma * this.energy; // Aplica la tasa de mortalidad
 
         // Redondear la energía a dos decimales
@@ -23,7 +28,7 @@ export default class Lobo extends Animal {
 
     // Método para reproducir lobos si tienen suficiente energía
     reproduce() {
-        const delta = 0.4; // Tasa de reproducción de lobos por oveja comida
+        const delta = formData.tasaReproduccionLobos; // Tasa de reproducción de lobos por oveja comida
         const reproductionThreshold = 100; // Energía necesaria para reproducirse
 
         // Verificar si el lobo tiene suficiente energía para reproducirse
@@ -38,7 +43,7 @@ export default class Lobo extends Animal {
 
     // Actualizar movimiento, buscar presas y reducir energía cada paso
     moveAndHunt(ovejas, gridSize) {
-        const beta = 0.2; // Tasa de depredación (lobos comen ovejas)
+        const beta = formData.tasaDepredacionLobos; // Tasa de depredación (lobos comen ovejas)
 
         // Movimiento hacia la oveja más cercana
         const closestSheep = this.findClosestSheep(ovejas);

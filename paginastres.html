@@ -7,6 +7,15 @@
         <link rel="stylesheet" href="/css/paginatres.css" />
     </head>
     <body>
+        <div class="sidebar">
+            <h2>Datos Ingresados</h2>
+            <p id="datoOvejas">Cantidad de Ovejas: -</p>
+            <p id="datoLobos">Cantidad de Lobos: -</p>
+            <p id="datoTasaOvejas">% Tasa reproducción Ovejas: -</p>
+            <p id="datoTasaLobos">% Tasa reproducción Lobos: -</p>
+            <p id="datoMortalidadLobos">% Tasa mortalidad Lobos: -</p>
+            <p id="datoDepredacionLobos">% Tasa depredación Lobos: -</p>
+        </div>
         <div class="container">
             <div class="item item-15">
                 <div class="item2">
@@ -20,7 +29,7 @@
             </div>
 
             <div class="item item-50">
-                <canvas id="simulationCanvas" width="700" height="400"></canvas>
+                <canvas id="simulationCanvas" width="700" height="700"></canvas>
                 <script type="module" src="js/main.js"></script>
             </div>
             <div class="item item-35">
@@ -68,5 +77,43 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const storedData = JSON.parse(localStorage.getItem("formData"));
+                if (storedData) {
+                    console.log("Datos cargados en página tres:", storedData);
+                } else {
+                    console.error("No se encontraron datos en localStorage.");
+                }
+            });
+
+            // Recuperar los datos desde localStorage
+            document.addEventListener("DOMContentLoaded", function () {
+                const storedData = JSON.parse(localStorage.getItem("formData"));
+                if (storedData) {
+                    document.getElementById("datoOvejas").textContent =
+                        "Cantidad de Ovejas: " + storedData.cantidadOvejas;
+                    document.getElementById("datoLobos").textContent =
+                        "Cantidad de Lobos: " + storedData.cantidadLobos;
+                    document.getElementById("datoTasaOvejas").textContent =
+                        "% Tasa reproducción Ovejas: " +
+                        storedData.tasaReproduccionOvejas;
+                    document.getElementById("datoTasaLobos").textContent =
+                        "% Tasa reproducción Lobos: " +
+                        storedData.tasaReproduccionLobos;
+                    document.getElementById("datoMortalidadLobos").textContent =
+                        "% Tasa mortalidad Lobos: " +
+                        storedData.tasaMortalidadLobos;
+                    document.getElementById(
+                        "datoDepredacionLobos"
+                    ).textContent =
+                        "% Tasa depredación Lobos: " +
+                        storedData.tasaDepredacionLobos;
+                } else {
+                    console.error("No se encontraron datos en localStorage.");
+                }
+            });
+        </script>
     </body>
 </html>
