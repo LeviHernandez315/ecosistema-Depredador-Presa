@@ -1,5 +1,8 @@
 import Animal from "./Animal.js";
 
+const formData = JSON.parse(localStorage.getItem("formData"));
+console.log("alpha", formData.tasaReproduccionOvejas);
+
 export default class Oveja extends Animal {
     constructor(x, y) {
         super(x, y);
@@ -15,7 +18,7 @@ export default class Oveja extends Animal {
     }
 
     reproduce(neighboringSheepCount) {
-        const alpha = 0.6; // Tasa de reproducción de las ovejas
+        const alpha = formData.tasaReproduccionOvejas; // Tasa de reproducción de las ovejas
         const reproductionThreshold = 60; // Energía necesaria para reproducirse
 
         // Verifica si hay al menos otra oveja cercana

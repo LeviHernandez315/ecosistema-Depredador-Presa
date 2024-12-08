@@ -11,15 +11,10 @@ import Lobo from "./clases/Lobo.js";
 let lastFrameTime = 0;
 const frameDelay = 200; // Tiempo en milisegundos (200 ms = 5 FPS)
 
-const cantAGuardado = localStorage.getItem("cantA");
-console.log(cantAGuardado);
+const formData = JSON.parse(localStorage.getItem("formData"));
 
-const datosGuardados = JSON.parse(localStorage.getItem("datos"));
-
-const initialSheepCount = 60; // Número de ovejas
-console.log(datosGuardados.cantidadAnimalA);
-const initialWolfCount = 5; // Número de lobos
-console.log(datosGuardados.cantidadAnimalB);
+const initialSheepCount = formData.cantidadOvejas; // Obtener del localStorage
+const initialWolfCount = formData.cantidadLobos; // Obtener del localStorage
 
 const pauseResumeButton = document.getElementById("pauseResumeButton");
 const resetButton = document.getElementById("resetButton");
