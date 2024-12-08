@@ -18,60 +18,66 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
 .item-15 {
     display: flex;
     justify-content: space-evenly; /* Espacio entre los elementos */
     align-items: center; /* Centra verticalmente los elementos */
     border-radius: 5px;
-  
-    
+
     height: 10%; /* Ocupa el 15% de la altura del contenedor */
 }
 
+.item-15 a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.item-15 a:hover {
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
 
 .item-70 {
-   
     height: auto; /* Ocupa el 50% de la altura del contenedor */
     overflow: hidden; /* Para evitar que la imagen sobresalga del contenedor */
 }
 
 .item2 {
     background-color: #2bb22b;
-       text-align: center;
-       border-radius: 5px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       padding: 20px;
-       width: 20%;
-       transition: transform 0.3s, background-color 0.3s;
-   }
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 20%;
+    transition: transform 0.3s, background-color 0.3s;
+}
 
-   .item2:hover {
+.item2:hover {
     transform: scale(1.1);
     background-color: #2bb22b;
 }
-   
-   .input-box {
+
+.input-box {
     width: 40px; /* Ancho pequeño para la caja de texto */
-    text-align: center; /* Centrar el número */}
+    text-align: center; /* Centrar el número */
+}
 
+.image-container {
+    width: 300px; /* Ancho del contenedor */
+    height: 200px; /* Altura del contenedor */
+    border: 2px solid #ccc; /* Opcional: para ver el borde del contenedor */
+    overflow: hidden; /* Para evitar que la imagen sobresalga del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .image-container {
-        width: 300px; /* Ancho del contenedor */
-        height: 200px; /* Altura del contenedor */
-        border: 2px solid #ccc; /* Opcional: para ver el borde del contenedor */
-        overflow: hidden; /* Para evitar que la imagen sobresalga del contenedor */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .image-container img {
-        width: 100%; /* Ajusta el ancho de la imagen al contenedor */
-        height: 100%; /* Ajusta la altura de la imagen al contenedor */
-        object-fit: cover; /* Hace que la imagen mantenga la proporción y llene el contenedor */
-    }
-    
-  
+.image-container img {
+    width: 100%; /* Ajusta el ancho de la imagen al contenedor */
+    height: 100%; /* Ajusta la altura de la imagen al contenedor */
+    object-fit: cover; /* Hace que la imagen mantenga la proporción y llene el contenedor */
+}

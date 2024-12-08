@@ -137,6 +137,13 @@ function step() {
     // Verificar si hay animales vivos
     if (!checkIfAnimalsAlive()) {
         simulationRunning = false; // Detener la simulación si no hay animales vivos
+        alert("Fin de la simulación");
+    }
+
+    // Verificar si hay solo una oveja
+    if (ovejas.length === 1 && lobos.length === 0) {
+        simulationRunning = false; // Detener la simulación
+        alert("Fin de la simulación");
     }
 
     // Incrementar el tiempo de simulación cada segundo
