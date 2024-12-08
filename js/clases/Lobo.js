@@ -3,28 +3,31 @@ import Animal from "./Animal.js";
 export default class Lobo extends Animal {
     constructor(x, y) {
         super(x, y);
-        this.energy = 50; // Energía inicial de los lobos
+        this.energy = 120; // Energía inicial de los lobos
     }
 
     // Método para consumir ovejas y ganar energía
     eatSheep() {
-        const delta = 0.2; // Tasa de reproducción de lobos por oveja comida
-        const energyGained = 10; // Energía ganada por comer una oveja
+        const delta = 0.4; // Tasa de reproducción de lobos por oveja comida
+        const energyGained = 200; // Energía ganada por comer una oveja
         this.energy += energyGained;
 
         // Aumentar la tasa de reproducción por cada oveja comida
-        this.energy += delta * energyGained; // Incrementar energía por la tasa delta
+        this.energy += delta * energyGained; // Incrementar energía por la tasa delta\
     }
 
     // Método para reducir energía por la tasa de mortalidad
     reduceEnergy() {
-        const gamma = 0.5; // Tasa de mortalidad de lobos
+        const gamma = 0.3; // Tasa de mortalidad de lobos
         this.energy -= gamma * this.energy; // Aplica la tasa de mortalidad
+
+        // Redondear la energía a dos decimales
+        this.energy = Math.round(this.energy * 100) / 100;
     }
 
     // Método para reproducir lobos si tienen suficiente energía
     reproduce() {
-        const reproductionThreshold = 120; // Energía necesaria para reproducirse
+        const reproductionThreshold = 100; // Energía necesaria para reproducirse
 
         // Verificar si el lobo tiene suficiente energía para reproducirse
         if (this.energy >= reproductionThreshold) {
@@ -39,7 +42,7 @@ export default class Lobo extends Animal {
 
     // Actualizar movimiento, buscar presas y reducir energía cada paso
     moveAndHunt(ovejas, gridSize) {
-        const beta = 0.02; // Tasa de depredación (lobos comen ovejas)
+        const beta = 0.2; // Tasa de depredación (lobos comen ovejas)
 
         // Movimiento hacia la oveja más cercana
         const closestSheep = this.findClosestSheep(ovejas);
@@ -86,11 +89,12 @@ export default class Lobo extends Animal {
             }
         }
 
-        // Reducir energía siempre, incluso si no hay ovejas
+        // console.log("Energía antes de reducir:", this.energy);
         this.reduceEnergy();
+        // console.log("Energía después de reducir:", this.energy);
 
         // Si la energía del lobo es cero o negativa, eliminarlo (muere)
-        if (this.energy <= 0) {
+        if (this.energy <= 0.01) {
             return null; // El lobo muere (es eliminado de la simulación)
         }
 

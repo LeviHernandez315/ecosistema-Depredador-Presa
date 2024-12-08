@@ -16,9 +16,9 @@ console.log(cantAGuardado);
 
 const datosGuardados = JSON.parse(localStorage.getItem("datos"));
 
-const initialSheepCount = 30; // Número de ovejas
+const initialSheepCount = 60; // Número de ovejas
 console.log(datosGuardados.cantidadAnimalA);
-const initialWolfCount = 20; // Número de lobos
+const initialWolfCount = 5; // Número de lobos
 console.log(datosGuardados.cantidadAnimalB);
 
 // Canvas y configuración
@@ -28,6 +28,10 @@ const gridSize = 40;
 
 // Variables globales
 let grid, ovejas, lobos;
+let grassCount = 0; // Contador de pasto
+let simulationTime = 0; // Variable para el tiempo de simulación
+let lastSecondTime = 0; // Para controlar el tiempo en segundos
+let simulationRunning = true; // Controlar si la simulación sigue corriendo
 
 function actualizarCantidades() {
     // Actualizar los campos de cantidad de ovejas y lobos
@@ -35,6 +39,27 @@ function actualizarCantidades() {
         ovejas.length;
     document.querySelector('input[placeholder="cantidad de Lobos"]').value =
         lobos.length;
+}
+
+// Actualiza el input con la cantidad de pasto
+function updateGrassInput() {
+    const grassInput = document.querySelector(
+        'input[placeholder="cantidad de pasto"]'
+    );
+    grassInput.value = grassCount;
+}
+
+// Actualiza el contador de pasto
+function updateGrassCount() {
+    grassCount = grid.reduce((acc, row) => {
+        return acc + row.filter((patch) => patch.hasGrass).length;
+    }, 0); // Contar los parches de pasto
+    updateGrassInput(); // Llamar para actualizar el input
+}
+
+// Función para verificar si hay animales vivos
+function checkIfAnimalsAlive() {
+    return ovejas.length > 0 || lobos.length > 0; // Verifica si hay al menos una oveja o un lobo
 }
 
 function setup() {
@@ -60,9 +85,14 @@ function setup() {
                 Math.floor(Math.random() * gridSize)
             )
     );
+
+    // Resetear el contador de pasto
+    updateGrassCount(); // Esto asegura que la cantidad de pasto se muestre al iniciar
 }
 
 function step() {
+    if (!simulationRunning) return;
+
     // Mover ovejas y comer pasto
     ovejas = ovejas.flatMap((oveja) => {
         oveja.moveAndGraze(grid, gridSize);
@@ -87,8 +117,27 @@ function step() {
     // Crecer la hierba en los parches
     grid.forEach((row) => row.forEach((patch) => patch.growGrass()));
 
+    // Actualizar la cantidad de pasto
+    updateGrassCount();
+
     // Actualizar las cantidades de ovejas y lobos en el HTML
     actualizarCantidades();
+
+    // Verificar si hay animales vivos
+    if (!checkIfAnimalsAlive()) {
+        simulationRunning = false; // Detener la simulación si no hay animales vivos
+    }
+
+    // Incrementar el tiempo de simulación cada segundo
+    const currentTime = performance.now();
+    if (currentTime - lastSecondTime >= 1000) {
+        // Si ha pasado 1 segundo
+        simulationTime++; // Incrementar el tiempo en segundos
+        lastSecondTime = currentTime; // Actualizar el tiempo del último incremento
+    }
+
+    // Actualizar el tiempo transcurrido
+    updateSimulationTime();
 }
 
 function draw() {
@@ -139,6 +188,12 @@ function loop(timestamp) {
         draw(); // Dibuja los resultados
     }
     requestAnimationFrame(loop); // Llama a la siguiente iteración de la simulación
+}
+
+// Función para actualizar el tiempo en el HTML
+function updateSimulationTime() {
+    const timeInput = document.querySelector('input[placeholder="Tiempo"]');
+    timeInput.value = simulationTime; // Actualiza el input con el tiempo transcurrido
 }
 
 // Iniciar simulación

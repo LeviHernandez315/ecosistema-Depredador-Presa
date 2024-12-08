@@ -18,17 +18,16 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
 .item {
- 
     text-align: center;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .item2 {
- background-color: #2bb22b;
+    background-color: #2bb22b;
     text-align: center;
     border-radius: 5px;
     display: flex;
@@ -39,17 +38,22 @@ body {
     transition: transform 0.3s, background-color 0.3s;
 }
 
-
+.item2 a {
+    text-decoration: none;
+    color: black;
+}
 
 .item2:hover {
     transform: scale(1.1);
     background-color: #2bb22b;
+    color: blue;
+    cursor: pointer;
 }
 
 .item-50 {
     margin-top: 20px;
     height: 60%; /* Ocupa el 50% de la altura del contenedor */
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .item-35 {
@@ -58,9 +62,8 @@ body {
     align-items: center; /* Centra verticalmente los elementos */
     border-radius: 5px;
     margin-top: 20px;
-    
+
     height: 13%; /* Ocupa el 15% de la altura del contenedor */
-    
 }
 
 .item-15 {
@@ -68,12 +71,10 @@ body {
     justify-content: space-evenly; /* Espacio entre los elementos */
     align-items: center; /* Centra verticalmente los elementos */
     border-radius: 5px;
-       transition: transform 0.3s, background-color 0.3s;
-   
-    
+    transition: transform 0.3s, background-color 0.3s;
+
     height: 15%; /* Ocupa el 15% de la altura del contenedor */
 }
-
 
 .grid-item {
     background-color: #2bb22b;
@@ -88,13 +89,10 @@ body {
     align-items: center;
     transition: transform 0.3s, background-color 0.3s;
     display: flex;
-    justify-content: space-around
-
-
-    
-    
+    justify-content: space-around;
 }
 
 .input-box {
     width: 50px; /* Ancho pequeño para la caja de texto */
-    text-align: center; /* Centrar el número */}
+    text-align: center; /* Centrar el número */
+}

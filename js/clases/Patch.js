@@ -22,7 +22,7 @@ export default class Patch {
         if (this.hasGrass) {
             this.hasGrass = false; // El pasto es consumido
             this.grassCountdown = this.growthRate; // Reiniciar el tiempo de crecimiento
-            return 5; // Energía que proporciona el pasto (puedes ajustar este valor)
+            return 10; // Energía que proporciona el pasto (puedes ajustar este valor)
         }
         return 0; // Si no hay pasto, no proporciona energía
     }

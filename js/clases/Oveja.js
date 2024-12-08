@@ -3,7 +3,7 @@ import Animal from "./Animal.js";
 export default class Oveja extends Animal {
     constructor(x, y) {
         super(x, y);
-        this.energy = 50; // Energía inicial de las ovejas
+        this.energy = 90; // Energía inicial de las ovejas
         this.isDead = false; // Nuevo atributo para marcar si la oveja está muerta
     }
 
@@ -15,7 +15,7 @@ export default class Oveja extends Animal {
     }
 
     reproduce() {
-        const alpha = 0.1; // Tasa de reproducción de las ovejas
+        const alpha = 0.6; // Tasa de reproducción de las ovejas
         const reproductionThreshold = 60; // Energía necesaria para reproducirse
         if (this.energy >= reproductionThreshold) {
             this.energy /= 2; // Dividir la energía entre la madre y la cría
@@ -25,21 +25,35 @@ export default class Oveja extends Animal {
     }
 
     reduceEnergy() {
-        this.energy -= 2; // Disminuir la energía en cada paso
+        this.energy -= 4; // Disminuir la energía en cada paso
+
+        // Evitar que la energía se vuelva negativa
+        if (this.energy < 0) {
+            this.energy = 0;
+        }
     }
 
     moveAndGraze(grid, gridSize) {
+        // Si la oveja ya está muerta, no realizar ningún paso
+        if (this.energy <= 0) {
+            this.isDead = true;
+            console.log("La oveja ha muerto");
+            return null;
+        }
+
         this.move(gridSize); // Pasar gridSize como argumento
 
         // Buscar pasto en la posición actual y comerlo
         const patch = grid[this.x][this.y];
         this.eatGrass(patch);
 
-        // Reducir energía después del movimiento
+        // console.log("Energía antes de reducir:", this.energy);
         this.reduceEnergy();
+        // console.log("Energía después de reducir:", this.energy);
+
         // Si la oveja se queda sin energía, marcarla como muerta
         if (this.energy <= 0) {
-            this.isDead = true;
+            return null; // La oveja muere (es eliminado de la simulación)
         }
     }
 }

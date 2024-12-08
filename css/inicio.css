@@ -29,27 +29,26 @@ body {
     height: 10%; /* Ocupa el 15% de la altura del contenedor */
 }
 
-
 .item-70 {
-  display: flex; /* Habilita el uso de flexbox */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  background-color: #32cd32; /* Fondo verde claro */
-  width: 60%; /* Ocupa todo el ancho disponible */
-  height: 60%; /* Ajusta la altura al 60% del contenedor */
-  border-radius: 15px; /* Bordes redondeados */
-  padding: 20px; /* Espaciado interno para dar margen a la imagen */
-  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem;
+    display: flex; /* Habilita el uso de flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    background-color: #32cd32; /* Fondo verde claro */
+    width: 60%; /* Ocupa todo el ancho disponible */
+    height: 60%; /* Ajusta la altura al 60% del contenedor */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno para dar margen a la imagen */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
 }
 
 .item-70 img {
-  max-width: 100%; /* Escala la imagen dentro del contenedor */
-  max-height: 100%; /* Mantiene proporciones dentro del contenedor */
-  object-fit: contain; /* Asegura que la imagen no se deforme */
-  border-radius: 10px; /* Opcional: bordes redondeados para la imagen */
+    max-width: 100%; /* Escala la imagen dentro del contenedor */
+    max-height: 100%; /* Mantiene proporciones dentro del contenedor */
+    object-fit: contain; /* Asegura que la imagen no se deforme */
+    border-radius: 10px; /* Opcional: bordes redondeados para la imagen */
 }
 
 .item2 {
@@ -64,15 +63,15 @@ body {
     transition: transform 0.3s, background-color 0.3s;
     color: black;
     font-size: 1.5rem;
-    text-decoration: none;  
+    text-decoration: none;
     cursor: pointer;
 }
 
 .item2 a {
-  text-decoration: none; 
-  color: inherit; 
-  font-size: inherit; 
-  cursor: pointer; 
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
 }
 
 .item2:hover {

@@ -46,13 +46,13 @@ body {
     grid-template-columns: 1fr; /* Una sola columna */
 }
 
-.grid-item a{
+.grid-item a {
     text-decoration: none;
     font-size: 1.5rem;
     color: white;
 }
 
-.grid-item input{
+.grid-item input {
     cursor: pointer;
 }
 
@@ -74,8 +74,8 @@ body {
 }
 
 .title {
-    flex: 0.72; 
-    text-align: center; 
+    flex: 0.72;
+    text-align: center;
 }
 
 .item2 {
