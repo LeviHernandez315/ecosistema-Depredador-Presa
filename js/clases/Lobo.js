@@ -28,7 +28,7 @@ export default class Lobo extends Animal {
 
     // Método para reproducir lobos si tienen suficiente energía
     reproduce() {
-        const delta = formData.tasaReproduccionLobos; // Tasa de reproducción de lobos por oveja comida
+        const delta = formData.tasaReproduccionLobos; // Tasa de reproducción de lobos
         const reproductionThreshold = 100; // Energía necesaria para reproducirse
 
         // Verificar si el lobo tiene suficiente energía para reproducirse
