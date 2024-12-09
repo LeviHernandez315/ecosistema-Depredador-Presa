@@ -33,6 +33,9 @@ let grassCount = 0; // Contador de pasto
 let simulationTime = 0; // Variable para el tiempo de simulación
 let lastSecondTime = 0; // Para controlar el tiempo en segundos
 let simulationRunning = true; // Controlar si la simulación sigue corriendo
+let ovejaGraph = [];
+let loboGraph = [];
+let timeGraph = [];
 
 function actualizarCantidades() {
     // Actualizar los campos de cantidad de ovejas y lobos
@@ -89,6 +92,13 @@ function setup() {
 
     // Resetear el contador de pasto
     updateGrassCount(); // Esto asegura que la cantidad de pasto se muestre al iniciar
+}
+
+function storeGraphData() {
+    localStorage.setItem("ovejaGraph", JSON.stringify(ovejaGraph));
+    localStorage.setItem("loboGraph", JSON.stringify(loboGraph));
+    localStorage.setItem("timeGraph", JSON.stringify(timeGraph));
+    localStorage.setItem("grass", JSON.stringify(grassCount));
 }
 
 function step() {
@@ -156,6 +166,11 @@ function step() {
 
     // Actualizar el tiempo transcurrido
     updateSimulationTime();
+    loboGraph.push(lobos.length);
+    ovejaGraph.push(ovejas.length);
+    timeGraph.push(simulationTime);
+    console.log("grass :", grassCount);
+    storeGraphData();
 }
 
 function draw() {

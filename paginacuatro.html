@@ -1,48 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Container with 3x3 Grid</title>
-        <link rel="stylesheet" href="/css/pagina4.css" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="item item-15">
-                <div><h1>Gráfico</h1></div>
-            </div>
-            <div class="item item-15">
-                <!-- <div class="item2">
-                    Pasto Final
-                    <hr />
-                    <input type="text" class="input-box" readonly />
-                </div> -->
-                <div class="item2">
-                    Cantidad Ovejas Final
-                    <hr />
-                    <input type="text" class="input-box" readonly />
-                </div>
-                <div class="item2">
-                    Cantidad Lobos Final
-                    <hr />
-                    <input type="text" class="input-box" readonly />
-                </div>
-            </div>
-
-            <div class="item item-70">
-                <img
-                    style="object-fit: contain; width: 100%"
-                    src="/img/gra.png"
-                    alt="Descripción de la imagen"
-                />
-            </div>
-
-            <div class="item item-15">
-                <div class="item2">
-                    <a href="/paginastres.html">Regresar</a>
-                </div>
-                <div class="item2"><a href="/index.html">Nuevo</a></div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container with 3x3 Grid</title>
+    <link rel="stylesheet" href="/css/pagina4.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="item item-15">
+            <div > <h1>Gráfico</h1></div>
+         
         </div>
-    </body>
+        <div class="item item-15">
+            <div class="item2">Pasto Final <hr> <input type="text" id="gfinal" class="input-box" readonly></div>
+            <div class="item2"># Final Ovejas <hr> <input type="text" id="bFinal" class="input-box" readonly></div>
+            <div class="item2"># Final de Lobos <hr> <input type="text" id="aFinal" class="input-box" readonly></div>
+        </div>
+    
+        <div class="item item-70">
+           
+            <canvas id="populationChart" width="400" height="200"></canvas>
+       </div>
+
+       <script>
+            function retrieveGraphData() {
+            const ovejaGraph = JSON.parse(localStorage.getItem("ovejaGraph")) || [];
+            const loboGraph = JSON.parse(localStorage.getItem("loboGraph")) || [];
+            const timeGraph = JSON.parse(localStorage.getItem("timeGraph")) || [];
+            const grassGraph = JSON.parse(localStorage.getItem("grass")) || 0;
+            return { ovejaGraph, loboGraph, timeGraph, grassGraph };
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const { ovejaGraph, loboGraph, timeGraph, grassGraph } = retrieveGraphData();
+
+            // Set the values of B Final and A Final
+            if (ovejaGraph.length > 0) {
+                    document.getElementById('bFinal').value = ovejaGraph[ovejaGraph.length - 1];
+                }
+                if (loboGraph.length > 0) {
+                    document.getElementById('aFinal').value = loboGraph[loboGraph.length - 1];
+                }
+                if (grassGraph > 0) {
+                    document.getElementById('gfinal').value = grassGraph;
+                }
+                
+            
+
+            const ctx = document.getElementById('populationChart').getContext('2d');
+            const populationChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: timeGraph,
+                    datasets: [
+                        {
+                            label: 'Ovejas',
+                            data: ovejaGraph,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        },
+                        {
+                            label: 'Lobos',
+                            data: loboGraph,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Tiempo'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Población'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+       <div class="item item-15">
+
+        <div class="item2">   <a href="/paginastres.html">Regresar</a></div>
+        <div class="item2">  <a href="/index.html">Nuevo</a></div>
+
+       </div>
+        
+    
+    </div>
+</body>
+
 </html>
+
