@@ -33,6 +33,7 @@ let grassCount = 0; // Contador de pasto
 let simulationTime = 0; // Variable para el tiempo de simulación
 let lastSecondTime = 0; // Para controlar el tiempo en segundos
 let simulationRunning = true; // Controlar si la simulación sigue corriendo
+let speedFactor = 1; // Factor por defecto
 let ovejaGraph = [];
 let loboGraph = [];
 let timeGraph = [];
@@ -156,11 +157,10 @@ function step() {
         alert("Fin de la simulación");
     }
 
-    // Incrementar el tiempo de simulación cada segundo
+    // Incrementar el tiempo de simulación usando el factor de velocidad
     const currentTime = performance.now();
-    if (currentTime - lastSecondTime >= 1000) {
-        // Si ha pasado 1 segundo
-        simulationTime++; // Incrementar el tiempo en segundos
+    if (currentTime - lastSecondTime >= 1000 / speedFactor) {
+        simulationTime += 1; // Incrementar el tiempo simulado
         lastSecondTime = currentTime; // Actualizar el tiempo del último incremento
     }
 
@@ -234,15 +234,19 @@ function changeSimulationSpeed(speed) {
     switch (speed) {
         case "X1":
             frameDelay = 500; // Más lento
+            speedFactor = 0.5; // La simulación avanza a mitad de velocidad
             break;
         case "X3":
             frameDelay = 200; // Velocidad normal
+            speedFactor = 1; // La simulación avanza a velocidad normal
             break;
         case "X5":
             frameDelay = 50; // Más rápido
+            speedFactor = 5; // La simulación avanza 5 veces más rápido
             break;
         default:
             frameDelay = 200; // Velocidad por defecto (X3)
+            speedFactor = 1; // Por defecto, velocidad normal
             break;
     }
 }
