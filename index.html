@@ -29,10 +29,116 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <h2>Información</h2>
+                <h2>Modelo base</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus vehicula, lorem id dictum consequat
+                    El modelo de Lotka-Volterra es un sistema de ecuaciones
+                    diferenciales utilizado para describir la dinámica de
+                    poblaciones en un ecosistema donde interactúan dos especies:
+                    una presa y un depredador. Este modelo asume que la
+                    población de presas crece exponencialmente en ausencia de
+                    depredadores y que la tasa de crecimiento de los
+                    depredadores depende directamente de la disponibilidad de
+                    presas como fuente de alimento. A su vez, la tasa de
+                    mortalidad de los depredadores es constante y la depredación
+                    reduce la población de presas. Las ecuaciones de
+                    Lotka-Volterra permiten simular cómo cambian las poblaciones
+                    de ambas especies a lo largo del tiempo, mostrando
+                    oscilaciones típicas donde las presas aumentan cuando hay
+                    pocos depredadores, y los depredadores crecen al haber más
+                    presas disponibles. El modelo es ideal para analizar las
+                    relaciones ecológicas básicas y predecir el equilibrio o la
+                    extinción dentro de sistemas depredador-presa en condiciones
+                    controladas, proporcionando una representación simplificada
+                    pero efectiva de la dinámica ecológica.
+                </p>
+                <p>
+                    Denotando por L(t) el número de Depredadores y por C(t) el
+                    número de presas, las ecuaciones propuestas por Lotka y
+                    Volterra que representan el modelo matemáticamente son:
+                </p>
+                <p>
+                    Los parámetros α,β,δ y γ son números positivos que
+                    representan las interacciones de las dos especies. La
+                    primera de las ecuaciones nos indica que la cantidad de
+                    conejos aumenta de modo proporcional a su número, pero
+                    disminuye de forma proporcional a la cantidad de encuentros
+                    entre las dos especies porque los lobos se comen a los
+                    conejos. La segunda de las ecuaciones establece que la
+                    cantidad de lobos aumenta de modo proporcional a las
+                    interacciones entre las dos especies, pero disminuye de modo
+                    proporcional a la cantidad de lobos.
+                </p>
+                <img src="/img/Modelo.png" alt="Modelo" />
+                <hr />
+
+                <h2>Funcionamiento del Simulador</h2>
+                <p>
+                    El simulador Lobos, Ovejas y Pasto, es un simulador que
+                    trata de imitar un ecosistema de depredador-presa en este
+                    caso contando con dos animales, lobos y ovejas. Se mostrara
+                    Aquí tienes el texto revisado con correcciones ortográficas
+                    y ajustes menores para mayor claridad: El simulador Lobos,
+                    Ovejas y Pasto es un simulador que trata de imitar un
+                    ecosistema de depredador-presa, en este caso contando con
+                    dos animales: lobos y ovejas. Se mostrará un diagrama en
+                    donde se observará el comportamiento del ecosistema.
+                </p>
+                <p>
+                    En el ecosistema, cada animal cuenta con una energía base,
+                    teniendo más energía el lobo. Ambos animales pueden obtener
+                    energía: la oveja lo hace comiendo pasto y el lobo comiendo
+                    ovejas. Además, cada especie puede reproducirse, pero hay
+                    que tener en cuenta que la reproducción consume energía.
+                </p>
+                <p>
+                    Se toman en cuenta las distintas variables del modelo
+                    Lotka-Volterra (alpha, delta, gamma y beta), además de la
+                    cantidad inicial de ovejas y lobos. A continuación, se
+                    detalla lo que representa cada variable:
+                </p>
+                <ol>
+                    <li>
+                        alpha (% Tasa de reproducción Ovejas): Indica la
+                        probabilidad de reproducción de una oveja con otra.
+                    </li>
+                    <li>
+                        delta (% Tasa de reproducción Lobos): Indica la
+                        probabilidad de reproducción de un lobo con otro.
+                    </li>
+                    <li>
+                        gamma (% Tasa de mortalidad de Lobos): Indica la
+                        probabilidad de muerte del lobo al no comer lo
+                        suficiente.
+                    </li>
+                    <li>
+                        beta (% Tasa de depredación Lobos): Indica la
+                        probabilidad de que un lobo mate a una oveja.
+                    </li>
+                </ol>
+                <p>
+                    En la ejecución del simulador se verá un cuadro que indicará
+                    los valores ingresados en la página de los parámetros.
+                    Además, se puede seleccionar la velocidad de la simulación.
+                    También se muestra la cantidad de ovejas y lobos en ese
+                    momento de la simulación.
+                </p>
+                <p>
+                    Se muestra, además, un recuadro en el que está representado
+                    el pasto del ecosistema. En este recuadro se verán puntos
+                    blancos (ovejas) y puntos negros (lobos), donde el lobo
+                    tratará de comerse a la oveja y la oveja tratará de
+                    sobrevivir reproduciéndose y obteniendo energía del pasto
+                    (cuando no hay pasto, se representa en gris).
+                </p>
+                <p>
+                    El simulador termina en caso de que no haya animales vivos o
+                    si solamente queda viva una oveja y ningún lobo, esto debido
+                    a que la oveja ya no podrá reproducirse por falta de otras
+                    ovejas.
+                </p>
+                <p>
+                    Por ultimo, el simulador muestra una grafica en donde se
+                    vera la evolucion de las poblaciones de los animales.
                 </p>
             </div>
         </div>

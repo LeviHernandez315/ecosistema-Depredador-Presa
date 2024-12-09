@@ -103,6 +103,18 @@ body {
     text-align: center;
 }
 
+.modal-content p {
+    text-align: justify;
+}
+
+.modal-content ol {
+    text-align: justify;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+}
+
 /* Estilo para el botón de cerrar */
 .close {
     color: #aaa;
